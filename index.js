@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-require('./services/mongoose');
-require('./services/passport');
+// Order of requiring user and passport must be kept like this
+// as passport uses an instance of user model.
 require('./models/User');
+require('./services/passport');
+require('./services/mongoose');
 // const keys = require('./config/key');
 
 // mongoose.connect(keys.mongoURI, {
