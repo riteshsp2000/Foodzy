@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import Footer from './marginals/Footer';
 import Navbar from './marginals/Navbar';
 
+import UserHomePage from './user/UserHomePage';
 import NewRequest from './user/NewRequest';
 import YourRequests from './user/YourRequests';
 import Profile from './user/Profile';
@@ -25,6 +26,9 @@ class App extends React.Component {
           <Switch>
             <Route path='/' exact>
               <HomePage />
+            </Route>
+            <Route path='/user' exact>
+              <UserHomePage />
             </Route>
             <Route path='/newRequest/:id' exact>
               <NewRequest />
