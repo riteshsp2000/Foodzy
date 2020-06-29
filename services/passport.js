@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-const keys = require('../config/key');
+const keys = require('../config/keys');
 
 // Creating a model instance of user model. One parameter
 // to the model method indicates fetching something out of
