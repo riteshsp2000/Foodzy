@@ -2,7 +2,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
-const keys = require('./config/key');
+const keys = require('./config/keys');
 // Order of requiring user and passport must be kept like this
 // as passport uses an instance of user model.
 require('./models/User');
