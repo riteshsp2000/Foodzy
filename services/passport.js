@@ -9,6 +9,27 @@ const keys = require('../config/key');
 // mongoose, two arguments indicates we are trying to load something in it.
 const User = mongoose.model('users');
 
+// A function to generate cookie for the particular user. Handled by passport
+// the user argument passed to the callback function is the same user
+// returned after createing new user/returning existing user.
+passport.serializeUser((user, done) => {
+  // the user.id in the following argument aint the google profile.id
+  // this id is the one that mongodb creates for each user.
+  // the profile id by google is used to just authenticate the user.
+  // Once authenticated, we will always use our own mongodb generated id
+  // in future other oauths can also be added and hence it is better to use mongodb id
+  done(null, user.id);
+});
+
+// A function to authenticate the incoming cookie and return a user.
+// the id passed as argument to the callback, is the id provided by mongodb/
+// the id passed to the done callback in serializeUser function.
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
+
 // Creating a google strategy for google login
 passport.use(
   new GoogleStrategy(
