@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Modal, Button } from 'react-bootstrap';
+
+import VerticallyCenteredModal from '../VerticallyCenteredModal';
 
 class Navbar extends React.Component {
-  state = { active: null };
-
-  handleNoUserMakeRequest = () => {
-    console.log('Show Modal');
-  };
+  state = { show: false };
 
   renderUserNavs = (user) => {
     switch (user) {
@@ -42,7 +41,7 @@ class Navbar extends React.Component {
           <Link
             to='#'
             className='navbar-left-navs'
-            onClick={() => this.handleNoUserMakeRequest()}
+            onClick={() => this.setState({ show: true })}
           >
             Make a Request
           </Link>
@@ -72,6 +71,10 @@ class Navbar extends React.Component {
             </Link>
 
             {this.renderMakeRequest(this.props.auth)}
+            <VerticallyCenteredModal
+              show={this.state.show}
+              onHide={() => this.setState({ show: false })}
+            />
           </div>
         </div>
 

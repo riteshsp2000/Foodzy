@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../sass/main.scss';
 
 import Footer from './marginals/Footer';
