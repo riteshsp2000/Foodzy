@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import '../sass/main.scss';
+
 import Footer from './marginals/Footer';
 import Navbar from './marginals/Navbar';
 

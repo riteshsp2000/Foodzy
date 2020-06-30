@@ -1,0 +1,61 @@
+.navbar-container {
+  width: 100%;
+  // height: 4rem;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba($color: #b2cbcfb9, $alpha: 0.5);
+}
+
+.highlight-div {
+  display: iniline-block !important;
+  width: auto;
+}
+
+.navbar-left {
+  width: 70%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.navbar-left .navbar-branding {
+  margin: auto 4rem;
+  margin-left: 2rem;
+  font-size: 2rem;
+  color: rgb(27, 63, 158);
+}
+
+.navbar-left .navbar-left-navs {
+  margin: auto 1rem;
+  color: rgb(27, 63, 158);
+  height: 100%;
+}
+
+.navbar-left .navbar-left-navs:nth-child(1):hover,
+.navbar-left .navbar-left-navs:nth-child(2):hover,
+.navbar-left .navbar-left-navs:nth-child(3):hover {
+  text-decoration: underline;
+}
+
+.navbar-right {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-right .navbar-right-navs {
+  margin: auto 2rem;
+  color: rgb(27, 63, 158);
+}
+
+.navbar-right .navbar-right-navs:nth-child(1):hover,
+.navbar-right .navbar-right-navs:nth-child(2):hover {
+  text-decoration: underline;
+}
+
+.fa-google-custom {
+  color: rgb(27, 63, 158);
+  margin-left: 7px;
+}
