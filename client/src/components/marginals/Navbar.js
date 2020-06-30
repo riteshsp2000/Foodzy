@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
   state = { active: null };
 
-  renderUserNavs = () => {
-    switch (this.props.auth) {
+  handleNoUserMakeRequest = () => {
+    console.log('Show Modal');
+  };
+
+  renderUserNavs = (user) => {
+    switch (user) {
       case null:
         return 'Loading...';
       case false:
@@ -29,6 +33,29 @@ class Navbar extends React.Component {
     }
   };
 
+  renderMakeRequest = (user) => {
+    switch (user) {
+      case null:
+        return;
+      case false:
+        return (
+          <Link
+            to='#'
+            className='navbar-left-navs'
+            onClick={() => this.handleNoUserMakeRequest()}
+          >
+            Make a Request
+          </Link>
+        );
+      default:
+        return (
+          <Link to='/newRequest/:id' className='navbar-left-navs'>
+            Make a Request
+          </Link>
+        );
+    }
+  };
+
   render() {
     return (
       <div className='navbar-container'>
@@ -44,13 +71,13 @@ class Navbar extends React.Component {
               Accept a Request
             </Link>
 
-            <Link to='/newRequest/:id' className='navbar-left-navs'>
-              Make a Request
-            </Link>
+            {this.renderMakeRequest(this.props.auth)}
           </div>
         </div>
 
-        <div className='navbar-right'>{this.renderUserNavs()}</div>
+        <div className='navbar-right'>
+          {this.renderUserNavs(this.props.auth)}
+        </div>
       </div>
     );
   }
