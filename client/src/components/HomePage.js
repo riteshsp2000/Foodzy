@@ -20,21 +20,23 @@ const HomePage = () => {
       </div>
       <div className='card-container'>
         <div className='card card-one'>
-          <h2>afjadlksf</h2>
+          <i className='far fa-file-alt fa-2x fa-custom'></i>
+          <h2>Make Request</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
         </div>
 
         <div className='card card-two'>
-          <h2>afjadlksf</h2>
+          <i className='fas fa-phone fa-2x fa-custom'></i>
+          <h2>Confirm Request</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
         </div>
 
         <div className='card card-three'>
-          <h2>afjadlksf</h2>
+          <i className='fas fa-hamburger fa-2x fa-custom'></i>
+          <h2>Enjoy the food</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
         </div>
       </div>
-      <h4>aflsdjflkajdsflkjlaslk</h4>
-      <h4>aflsdjflkajdsflkjlaslk</h4>
-      <h4>aflsdjflkajdsflkjlaslk</h4>
-      <h4>aflsdjflkajdsflkjlaslk</h4>
     </header>
   );
 };

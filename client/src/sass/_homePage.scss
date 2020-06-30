@@ -21,6 +21,7 @@
 .card-container {
   width: 70%;
   margin: 0 auto;
+  padding-bottom: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -29,12 +30,81 @@
 .card-container .card {
   width: 30%;
   height: 14rem;
-  margin-top: -2rem;
+  margin-top: -3rem;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 7px;
   padding: 1rem;
   text-align: center;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  animation-name: moveInUp;
+
+  animation-timing-function: ease-in;
 }
 
-/* rgba(21, 26, 21, 0.3) */
+.card-container .card-one {
+  animation-duration: 0.5s;
+}
+
+.card-container .card-two {
+  animation-duration: 0.7s;
+}
+
+.card-container .card-three {
+  animation-duration: 1s;
+}
+
+.card .fa-custom {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(33, 103, 168);
+}
+
+.card .fa-custom::after {
+  content: '';
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  color: rgb(11, 29, 78);
+}
+
+.card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  color: rgb(11, 29, 78);
+}
+
+/* ============== Animations ==============  */
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+/* 
+rgba(21, 26, 21, 0.3) 
+clip-path: circle(50% at 50% 100%);
+*/
