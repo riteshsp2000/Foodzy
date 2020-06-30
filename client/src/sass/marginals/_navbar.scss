@@ -5,6 +5,10 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba($color: #b2cbcfb9, $alpha: 0.5);
+
+  animation-name: moveInUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
 }
 
 .highlight-div {
@@ -58,4 +62,18 @@
 .fa-google-custom {
   color: rgb(27, 63, 158);
   margin-left: 7px;
+}
+
+/* ============== Animations ==============  */
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
 }
