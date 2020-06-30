@@ -18,9 +18,23 @@ const HomePage = () => {
           className='typed-intro'
         />
       </div>
-      <h1>dfajsdlkfjlk</h1>
-      <h1>dfajsdlkfjlk</h1>
-      <h1>dfajsdlkfjlk</h1>
+      <div className='card-container'>
+        <div className='card card-one'>
+          <h2>afjadlksf</h2>
+        </div>
+
+        <div className='card card-two'>
+          <h2>afjadlksf</h2>
+        </div>
+
+        <div className='card card-three'>
+          <h2>afjadlksf</h2>
+        </div>
+      </div>
+      <h4>aflsdjflkajdsflkjlaslk</h4>
+      <h4>aflsdjflkajdsflkjlaslk</h4>
+      <h4>aflsdjflkajdsflkjlaslk</h4>
+      <h4>aflsdjflkajdsflkjlaslk</h4>
     </header>
   );
 };

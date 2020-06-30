@@ -18,4 +18,23 @@
   color: rgb(11, 29, 78);
 }
 
+.card-container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card-container .card {
+  width: 30%;
+  height: 14rem;
+  margin-top: -2rem;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 7px;
+  padding: 1rem;
+  text-align: center;
+}
+
 /* rgba(21, 26, 21, 0.3) */
