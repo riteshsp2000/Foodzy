@@ -1,5 +1,7 @@
+@import './variables';
+
 .heading-container {
-  background-color: rgb(229, 237, 241);
+  background-color: $color-background-white;
 
   & .heading-image {
     height: 75vh;
@@ -37,7 +39,7 @@
         top: 25%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: rgb(33, 103, 168);
+        color: $color-dark-blue;
         z-index: 100;
       }
     }
@@ -50,7 +52,7 @@
       left: 50%;
       width: 70%;
       transform: translate(-50%, -50%);
-      color: rgb(11, 29, 78);
+      color: $color-darker-blue;
     }
 
     & p {
@@ -61,7 +63,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       line-height: 1;
-      color: rgb(11, 29, 78);
+      color: $color-darker-blue;
     }
 
     & .card-one {
@@ -83,7 +85,7 @@
   top: 40%;
   left: 6%;
   font-size: 3.2rem;
-  color: rgb(11, 29, 78);
+  color: $color-darker-blue;
 }
 
 /* ============== Animations ==============  */

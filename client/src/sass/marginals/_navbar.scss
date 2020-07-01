@@ -1,3 +1,5 @@
+@import '../variables';
+
 /* ============== Primary Navbar Container ==============  */
 .navbar-container {
   width: 100%;
@@ -25,13 +27,13 @@
     font-size: 3.2rem;
 
     & a {
-      color: rgb(27, 63, 158);
+      color: $color-dark-blue;
     }
   }
 
   & .navbar-left-navs {
     margin: auto 1rem;
-    color: rgb(27, 63, 158);
+    color: $color-dark-blue;
     height: 100%;
 
     &:nth-child(1):hover,
@@ -51,7 +53,7 @@
 
   & .navbar-right-navs {
     margin: auto 2rem;
-    color: rgb(27, 63, 158);
+    color: $color-dark-blue;
 
     &:nth-child(1):hover,
     &:nth-child(2):hover {
@@ -61,7 +63,7 @@
 }
 
 .fa-google-custom {
-  color: rgb(27, 63, 158);
+  color: $color-dark-blue;
   margin-left: 7px;
 }
 
