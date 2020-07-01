@@ -88,3 +88,40 @@
   font-size: 3.2rem;
   color: $color-darker-blue;
 }
+
+@media screen and (min-width: 480px) and (max-width: 700px) {
+  .card-container {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: -15em !important;
+  }
+
+  .card-container .card {
+    width: 80% !important;
+    margin: 1em !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heading-container {
+    overflow: hidden;
+
+    & .card-container {
+      display: inline-block;
+      position: relative;
+      width: 300%;
+      margin: 0;
+      left: 0;
+
+      &.card-container .card {
+        margin: 1em;
+        // display: inline;
+      }
+    }
+  }
+
+  .typed-intro {
+    top: 80%;
+  }
+}
