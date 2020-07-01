@@ -1,0 +1,81 @@
+@import '../variables';
+
+/* ============== Primary Navbar Container ==============  */
+.navbar-container {
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba($color: #b2cbcfb9, $alpha: 0.5);
+
+  animation-name: moveInDown;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+/* ============== Navbar Left ==============  */
+.navbar-left {
+  width: 70%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  & .navbar-branding {
+    margin: auto 4rem;
+    margin-left: 2rem;
+    font-size: 3.2rem;
+
+    & a {
+      color: $color-dark-blue;
+    }
+  }
+
+  & .navbar-left-navs {
+    margin: auto 1rem;
+    color: $color-dark-blue;
+    height: 100%;
+
+    &:nth-child(1):hover,
+    &:nth-child(2):hover,
+    &:nth-child(3):hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ============== Navbar Right ==============  */
+.navbar-right {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .navbar-right-navs {
+    margin: auto 2rem;
+    color: $color-dark-blue;
+
+    &:nth-child(1):hover,
+    &:nth-child(2):hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.fa-google-custom {
+  color: $color-dark-blue;
+  margin-left: 7px;
+}
+
+/* ============== Animations ==============  */
+@keyframes moveInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}

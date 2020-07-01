@@ -1,0 +1,102 @@
+@import './variables';
+
+.heading-container {
+  background-color: $color-background-white;
+
+  & .heading-image {
+    height: 75vh;
+    background-image: url('../assets/img/background-1.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  & .card-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    & .card {
+      width: 30%;
+      height: 13em;
+      margin-top: -1.5em;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 7px;
+      padding: 0.8em;
+      text-align: center;
+      box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+      position: relative;
+
+      animation-name: moveInUp;
+      animation-timing-function: ease-in;
+
+      & .fa-custom {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-light-blue;
+        z-index: 100;
+      }
+    }
+
+    & h2 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      width: 70%;
+      transform: translate(-50%, -50%);
+      color: $color-darker-blue;
+    }
+
+    & p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+      color: $color-darker-blue;
+    }
+
+    & .card-one {
+      animation-duration: 0.5s;
+    }
+
+    & .card-two {
+      animation-duration: 0.7s;
+    }
+
+    & .card-three {
+      animation-duration: 1s;
+    }
+  }
+}
+
+.typed-intro {
+  position: absolute;
+  top: 40%;
+  left: 6%;
+  font-size: 3.2rem;
+  color: $color-darker-blue;
+}
+
+/* ============== Animations ==============  */
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
