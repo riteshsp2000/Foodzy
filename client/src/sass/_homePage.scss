@@ -1,104 +1,92 @@
 .heading-container {
   background-color: rgb(229, 237, 241);
-}
 
-.heading-image {
-  height: 75vh;
-  background-image: url('../assets/img/background-1.jpg');
-  background-position: center;
-  background-size: cover;
-  position: relative;
+  & .heading-image {
+    height: 75vh;
+    background-image: url('../assets/img/background-1.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  & .card-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    & .card {
+      width: 30%;
+      height: 13em;
+      margin-top: -1.5em;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 7px;
+      padding: 0.8em;
+      text-align: center;
+      box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+      position: relative;
+
+      animation-name: moveInUp;
+      animation-timing-function: ease-in;
+
+      & .fa-custom {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(33, 103, 168);
+        z-index: 100;
+      }
+    }
+
+    & h2 {
+      font-size: 1.9rem;
+      font-weight: 500;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      width: 70%;
+      transform: translate(-50%, -50%);
+      color: rgb(11, 29, 78);
+    }
+
+    & p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 1;
+      color: rgb(11, 29, 78);
+    }
+
+    & .card-one {
+      animation-duration: 0.5s;
+    }
+
+    & .card-two {
+      animation-duration: 0.7s;
+    }
+
+    & .card-three {
+      animation-duration: 1s;
+    }
+  }
 }
 
 .typed-intro {
   position: absolute;
   top: 40%;
   left: 6%;
-  font-size: 2rem;
-  color: rgb(11, 29, 78);
-}
-
-.card-container {
-  width: 70%;
-  margin: 0 auto;
-  padding-bottom: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.card-container .card {
-  width: 30%;
-  height: 14rem;
-  margin-top: -3rem;
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 7px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-
-  animation-name: moveInUp;
-
-  animation-timing-function: ease-in;
-}
-
-.card-container .card-one {
-  animation-duration: 0.5s;
-}
-
-.card-container .card-two {
-  animation-duration: 0.7s;
-}
-
-.card-container .card-three {
-  animation-duration: 1s;
-}
-
-.card .fa-custom {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(33, 103, 168);
-  z-index: 100;
-}
-
-// .card .fa-custom::after {
-//   content: '';
-//   display: inline-block;
-//   width: 3rem;
-//   height: 3rem;
-//   border-radius: 50%;
-//   background-color: rgba(193, 217, 230, 0.87);
-
-// }
-
-.card h2 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  width: 70%;
-  transform: translate(-50%, -50%);
-  color: rgb(11, 29, 78);
-}
-
-.card p {
-  font-size: 0.9rem;
-  font-weight: 300;
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1;
+  font-size: 3.2rem;
   color: rgb(11, 29, 78);
 }
 
 /* ============== Animations ==============  */
-
 @keyframes moveInUp {
   0% {
     opacity: 0;
@@ -110,8 +98,3 @@
     transform: translateY(0);
   }
 }
-
-/* 
-rgba(21, 26, 21, 0.3) 
-clip-path: circle(50% at 50% 100%);
-*/

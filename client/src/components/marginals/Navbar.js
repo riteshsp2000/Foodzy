@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Modal, Button } from 'react-bootstrap';
 
 import VerticallyCenteredModal from '../VerticallyCenteredModal';
 

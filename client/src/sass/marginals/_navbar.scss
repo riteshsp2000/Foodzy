@@ -1,3 +1,4 @@
+/* ============== Primary Navbar Container ==============  */
 .navbar-container {
   width: 100%;
   position: fixed;
@@ -11,52 +12,52 @@
   animation-timing-function: ease-in;
 }
 
-.highlight-div {
-  display: iniline-block !important;
-  width: auto;
-}
-
+/* ============== Navbar Left ==============  */
 .navbar-left {
   width: 70%;
   display: flex;
   justify-content: left;
   align-items: center;
+
+  & .navbar-branding {
+    margin: auto 4rem;
+    margin-left: 2rem;
+    font-size: 3.2rem;
+
+    & a {
+      color: rgb(27, 63, 158);
+    }
+  }
+
+  & .navbar-left-navs {
+    margin: auto 1rem;
+    color: rgb(27, 63, 158);
+    height: 100%;
+
+    &:nth-child(1):hover,
+    &:nth-child(2):hover,
+    &:nth-child(3):hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.navbar-left .navbar-branding {
-  margin: auto 4rem;
-  margin-left: 2rem;
-  font-size: 2rem;
-  color: rgb(27, 63, 158);
-}
-
-.navbar-left .navbar-left-navs {
-  margin: auto 1rem;
-  color: rgb(27, 63, 158);
-  height: 100%;
-}
-
-.navbar-left .navbar-left-navs:nth-child(1):hover,
-.navbar-left .navbar-left-navs:nth-child(2):hover,
-.navbar-left .navbar-left-navs:nth-child(3):hover {
-  text-decoration: underline;
-}
-
+/* ============== Navbar Right ==============  */
 .navbar-right {
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.navbar-right .navbar-right-navs {
-  margin: auto 2rem;
-  color: rgb(27, 63, 158);
-}
+  & .navbar-right-navs {
+    margin: auto 2rem;
+    color: rgb(27, 63, 158);
 
-.navbar-right .navbar-right-navs:nth-child(1):hover,
-.navbar-right .navbar-right-navs:nth-child(2):hover {
-  text-decoration: underline;
+    &:nth-child(1):hover,
+    &:nth-child(2):hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .fa-google-custom {
@@ -65,7 +66,6 @@
 }
 
 /* ============== Animations ==============  */
-
 @keyframes moveInDown {
   0% {
     opacity: 0;
