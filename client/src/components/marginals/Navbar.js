@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import VerticallyCenteredModal from '../VerticallyCenteredModal';
 
 class Navbar extends React.Component {
-  state = { show: false };
+  state = { show: false, burgerNav: false };
 
   renderUserNavs = (user) => {
     switch (user) {
@@ -54,6 +54,10 @@ class Navbar extends React.Component {
     }
   };
 
+  handleBurgerNavClick = () => {
+    this.setState({ burgerNav: !this.state.burgerNav });
+  };
+
   render() {
     return (
       <div className='navbar-container'>
@@ -62,9 +66,21 @@ class Navbar extends React.Component {
             <Link to='/' className=''>
               Foodzy
             </Link>
+            <div
+              className={`hamburger-menu-button`}
+              onClick={() => this.handleBurgerNavClick()}
+            >
+              <div className='line1'></div>
+              <div className='line2'></div>
+              <div className='line3'></div>
+            </div>
           </div>
 
-          <div className='navbar-navs'>
+          <div
+            className={`navbar-navs ${
+              this.state.burgerNav ? 'burger-nav-active-left' : ''
+            }`}
+          >
             <Link to='/viewRequests' className='navbar-left-navs'>
               Accept a Request
             </Link>
@@ -77,7 +93,11 @@ class Navbar extends React.Component {
           </div>
         </div>
 
-        <div className='navbar-right'>
+        <div
+          className={`navbar-right ${
+            this.state.burgerNav ? 'burger-nav-active-right' : ''
+          }`}
+        >
           {this.renderUserNavs(this.props.auth)}
         </div>
       </div>

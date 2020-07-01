@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../animations.scss';
 
 /* ============== Primary Navbar Container ==============  */
 .navbar-container {
@@ -28,6 +29,17 @@
 
     & a {
       color: $color-dark-blue;
+    }
+
+    & .hamburger-menu-button {
+      display: none;
+    }
+
+    & .hamburger-menu-button div {
+      width: 25px;
+      height: 3px;
+      background-color: $color-dark-blue;
+      margin: 3px;
     }
   }
 
@@ -67,15 +79,76 @@
   margin-left: 7px;
 }
 
-/* ============== Animations ==============  */
-@keyframes moveInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-2rem);
+.burger-nav-active-left {
+  display: block !important;
+}
+
+.burger-nav-active-right {
+  display: flex !important;
+}
+
+/* ============== Mobile Design ==============  */
+
+@media screen and (max-width: 700px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: column;
   }
 
-  100% {
-    opacity: 100%;
-    transform: translateY(0);
+  .navbar-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    & .navbar-navs {
+      width: 100%;
+      display: none;
+
+      animation-name: moveInDown;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+    }
+
+    & .navbar-left-navs {
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      margin: 0 1em;
+      font-size: 2rem;
+    }
+
+    & .navbar-branding {
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 4rem;
+      width: 90%;
+
+      & .hamburger-menu-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .navbar-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none;
+
+    animation-name: moveInDown;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+
+    & .navbar-right-navs {
+      margin: 0 1em;
+      width: 90%;
+      font-size: 2rem;
+    }
   }
 }
