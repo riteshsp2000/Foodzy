@@ -106,7 +106,7 @@
       display: none;
 
       animation-name: moveInDown;
-      animation-duration: 1s;
+      animation-duration: 0.5s;
       animation-timing-function: ease-in;
     }
 
@@ -142,7 +142,7 @@
     display: none;
 
     animation-name: moveInDown;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-in;
 
     & .navbar-right-navs {

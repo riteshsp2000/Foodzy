@@ -54,6 +54,25 @@ class Navbar extends React.Component {
     }
   };
 
+  renderTitle = (user) => {
+    switch (user) {
+      case null:
+        return;
+      case false:
+        return (
+          <Link to='/' className=''>
+            Foodzy
+          </Link>
+        );
+      default:
+        return (
+          <Link to='/user' className=''>
+            Foodzy
+          </Link>
+        );
+    }
+  };
+
   handleBurgerNavClick = () => {
     this.setState({ burgerNav: !this.state.burgerNav });
   };
@@ -63,9 +82,7 @@ class Navbar extends React.Component {
       <div className='navbar-container'>
         <div className='navbar-left'>
           <div className='navbar-branding'>
-            <Link to='/' className=''>
-              Foodzy
-            </Link>
+            {this.renderTitle(this.props.auth)}
             <div
               className={`hamburger-menu-button`}
               onClick={() => this.handleBurgerNavClick()}
