@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Layout from './Layout';
+
 const NewRequest = () => {
-  return <div>New Request</div>;
+  return (
+    <Layout>
+      <h2>New Request</h2>
+    </Layout>
+  );
 };
 
 export default NewRequest;
