@@ -24,7 +24,7 @@
       width: 30%;
       height: 13em;
       margin-top: -1.5em;
-      z-index: 1000;
+      z-index: 100;
       background-color: rgba(255, 255, 255, 0.8);
       border-radius: 7px;
       padding: 0.8em;
@@ -41,7 +41,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: $color-light-blue;
-        z-index: 100;
+        z-index: 10;
       }
     }
 
@@ -105,18 +105,17 @@
 
 @media screen and (max-width: 480px) {
   .heading-container {
-    overflow: hidden;
+    width: 100%;
 
     & .card-container {
-      display: inline-block;
-      position: relative;
-      width: 300%;
-      margin: 0;
-      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       &.card-container .card {
         margin: 1em;
-        // display: inline;
+        width: 120%;
       }
     }
   }
