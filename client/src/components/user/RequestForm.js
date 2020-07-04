@@ -77,9 +77,14 @@ class RequestForm extends React.Component {
       <div>
         <form
           onSubmit={this.props.handleSubmit((values) => console.log(values))}
+          className='form-container'
         >
-          {this.renderUserFields()}
-          {this.renderItemFields()}
+          <div className='user-input-container input-div'>
+            {this.renderUserFields()}
+          </div>
+          <div className='item-input-container input-div'>
+            {this.renderItemFields()}
+          </div>
           <button type='submit'>Confirm the Request</button>
         </form>
       </div>
@@ -87,6 +92,39 @@ class RequestForm extends React.Component {
   }
 }
 
+const validate = (values) => {
+  // the values parameter is called with the validate form by redux-form
+  // which containes an object of all the inputs as structured by use
+  // ie. wrt to the name provided for each input
+  const errors = {};
+
+  // An error object is created which will be populated with the keys corresponding
+  // to the name of input which indicates redux-form that the concerned input
+  // has the mentioned sort of error. If no error(empty) no errors displayed
+  _.each(USER_FIELDS, ({ name }) => {
+    if (!values[name]) {
+      errors[name] = 'You must provide a value.';
+    }
+  });
+
+  _.each(ITEM_FIELDS, ({ name }) => {
+    if (!values[name]) {
+      errors[name] = 'You must provide a value.';
+    }
+  });
+
+  if (isNaN(values.contactNumber)) {
+    errors.contactNumber = 'Contact number must be a number.';
+  }
+
+  if (isNaN(values.itemQuantity)) {
+    errors.itemQuantity = 'Item quantity must be a number.';
+  }
+
+  return errors;
+};
+
 export default reduxForm({
+  validate,
   form: 'requestForm',
 })(RequestForm);
