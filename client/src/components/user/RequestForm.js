@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
 import _ from 'lodash';
 
@@ -76,7 +77,7 @@ class RequestForm extends React.Component {
     return (
       <div>
         <form
-          onSubmit={this.props.handleSubmit((values) => console.log(values))}
+          onSubmit={this.props.handleSubmit(() => this.props.onRequestSubmit())}
           className='form-container'
         >
           <div className='user-input-container input-div'>
@@ -85,6 +86,7 @@ class RequestForm extends React.Component {
           <div className='item-input-container input-div'>
             {this.renderItemFields()}
           </div>
+          <Link to='/user'>Cancel</Link>
           <button type='submit'>Confirm the Request</button>
         </form>
       </div>
@@ -127,4 +129,5 @@ const validate = (values) => {
 export default reduxForm({
   validate,
   form: 'requestForm',
+  destroyOnUnmount: false,
 })(RequestForm);

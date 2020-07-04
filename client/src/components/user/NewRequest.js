@@ -9,12 +9,16 @@ class NewRequest extends Component {
 
   renderContent() {
     if (this.state.showFormReview) {
-      return <RequestReview />;
+      return (
+        <RequestReview
+          onCancel={() => this.setState({ showFormReview: false })}
+        />
+      );
     }
 
     return (
       <RequestForm
-        onSurveySubmit={() => this.setState({ showFormReview: true })}
+        onRequestSubmit={() => this.setState({ showFormReview: true })}
       />
     );
   }
