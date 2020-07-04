@@ -8,12 +8,12 @@ module.exports = (app) => {
   app.get('/api/viewRequests', (req, res) => {});
 
   app.post('/api/newRequest', requireLogin, async (req, res) => {
-    const { name, contactNumber, location, items } = req.body;
+    const { name, contactNumber, deliveryLocation, items } = req.body;
 
     const request = new Request({
       name,
       contactNumber,
-      location,
+      deliveryLocation,
       items,
       _user: req.user.id,
       dateAdded: Date.now(),
