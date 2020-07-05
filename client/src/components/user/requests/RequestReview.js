@@ -1,10 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_FIELDS, ITEM_FIELDS } from './constants';
+import { submitRequest } from '../../../actions/index';
 
-const RequestReview = ({ onCancel, formValues }) => {
+const RequestReview = ({ onCancel, formValues, submitRequest }) => {
   const renderUserDetails = () => {
     return _.map(USER_FIELDS, (field, index) => {
       return (
@@ -20,10 +22,10 @@ const RequestReview = ({ onCancel, formValues }) => {
   const renderItemDetails = () => {
     return formValues.items.map((item, index) => {
       return (
-        <ul>
-          {_.map(ITEM_FIELDS, (field) => {
+        <ul key={index}>
+          {_.map(ITEM_FIELDS, (field, index) => {
             return (
-              <li key={index}>
+              <li key={`${index}-${field.label}`}>
                 <h4>
                   {field.label} : {item[field.name]}
                 </h4>
@@ -35,13 +37,22 @@ const RequestReview = ({ onCancel, formValues }) => {
     });
   };
 
+  const handleRequestSubmit = (values) => {
+    // const { data } = await axios.post('/api/newRequest', values);
+    // console.log(data);
+    submitRequest(values);
+  };
+
   return (
     <div>
       <h4>Request Review</h4>
 
       <div className='review-container'>{renderUserDetails()}</div>
-      <ul className='items-container'>{renderItemDetails()}</ul>
+      <div className='items-container'>{renderItemDetails()}</div>
       <button onClick={() => onCancel()}>Back</button>
+      <button onClick={() => handleRequestSubmit(formValues)}>
+        Make a Request
+      </button>
     </div>
   );
 };
@@ -50,4 +61,4 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.requestForm.values };
 };
 
-export default connect(mapStateToProps)(RequestReview);
+export default connect(mapStateToProps, { submitRequest })(RequestReview);
