@@ -5,10 +5,12 @@
 .navbar-container {
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
-  background-color: rgba($color: #b2cbcfb9, $alpha: 0.5);
+  background-color: rgba($color: #b2cbcfb9, $alpha: 0.8);
 
   animation-name: moveInDown;
   animation-duration: 0.5s;

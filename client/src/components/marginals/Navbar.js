@@ -8,6 +8,7 @@ class Navbar extends React.Component {
   state = { show: false, burgerNav: false };
 
   renderUserNavs = (user) => {
+    // console.log(user);
     switch (user) {
       case null:
         return 'Loading...';

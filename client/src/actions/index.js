@@ -7,3 +7,9 @@ export const fetchUser = () => async (dispatch) => {
 
   dispatch({ type: FETCH_USER, payload: data });
 };
+
+export const submitRequest = (values) => async (dispatch) => {
+  const { data } = await axios.post('/api/newRequest', values);
+
+  dispatch({ type: FETCH_USER, payload: data });
+};
