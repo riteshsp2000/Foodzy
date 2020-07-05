@@ -3,55 +3,18 @@ import { Link } from 'react-router-dom';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 import _ from 'lodash';
 
-import SurveyField from './SurveyField';
-
-// ====================================================================================================
-const USER_FIELDS = [
-  { label: 'Name', type: 'text', name: 'name', className: 'user-name' },
-  {
-    label: 'Contact Number',
-    type: 'number',
-    name: 'contactNumber',
-    className: 'contact-number',
-  },
-  {
-    label: 'Delivery Location',
-    type: 'text',
-    name: 'deliveryLocation',
-    className: 'delivery-location',
-  },
-];
-
-// ====================================================================================================
-const ITEM_FIELDS = [
-  {
-    label: 'Item Name',
-    type: 'text',
-    name: 'itemName',
-    className: 'item-name',
-  },
-  {
-    label: 'Restaurant Name',
-    type: 'text',
-    name: 'restaurant',
-    className: 'restaurant',
-  },
-  {
-    label: 'Item Quantity',
-    type: 'number',
-    name: 'itemQuantity',
-    className: 'item-quantity',
-  },
-];
+import RequestInputField from './RequestInputField';
+import { USER_FIELDS, ITEM_FIELDS } from './constants';
 
 // ====================================================================================================
 class RequestForm extends React.Component {
+  // Function to render the fields(inputs) of individual details of user.
   renderUserFields = () => {
     return _.map(USER_FIELDS, ({ label, type, name, className }) => {
       return (
         <Field
           key={name}
-          component={SurveyField}
+          component={RequestInputField}
           type={type}
           label={label}
           className={className}
@@ -61,12 +24,13 @@ class RequestForm extends React.Component {
     });
   };
 
+  // Function to render the fields(inputs) of individual details of items.
   renderItemFields = (item) => {
     return _.map(ITEM_FIELDS, ({ label, type, name, className }) => {
       return (
         <Field
           key={`${item}.${name}`}
-          component={SurveyField}
+          component={RequestInputField}
           type={type}
           label={label}
           className={className}
@@ -76,6 +40,7 @@ class RequestForm extends React.Component {
     });
   };
 
+  // Function to render all the items in the Array Fields (item-list)
   renderItems = ({ fields, meta: { error, submitFailed } }) => {
     return (
       <ul>
@@ -99,8 +64,6 @@ class RequestForm extends React.Component {
       </ul>
     );
   };
-
-  handleParentFormSubmit = () => {};
 
   render() {
     return (
@@ -139,6 +102,7 @@ const validate = (values) => {
     }
   });
 
+  // Validate the contact number to be a number and of length 10
   if (isNaN(values.contactNumber)) {
     errors.contactNumber = 'Contact number must be a number.';
   } else {
@@ -147,6 +111,7 @@ const validate = (values) => {
     }
   }
 
+  // Error validation logic for the field array.
   if (!values.items || !values.items.length) {
     errors.items = { _error: 'At least one item must be added.' };
   } else {
@@ -167,6 +132,7 @@ const validate = (values) => {
     }
   }
 
+  // ..
   return errors;
 };
 
@@ -176,10 +142,3 @@ export default reduxForm({
   form: 'requestForm',
   destroyOnUnmount: false,
 })(RequestForm);
-
-// <form className='item-input-container'>
-//           <div className='item-input-container input-div'>
-//             {this.renderItemFields()}
-//           </div>
-//           <i className='fas fa-plus-circle'></i>
-//         </form>

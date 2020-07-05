@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SurveyField = ({ input, label, meta: { error, touched } }) => {
+const RequestInputField = ({ input, label, meta: { error, touched } }) => {
   // meta parameter contains details regarding errors and interaction of the user with the input
   return (
     <div>
@@ -11,4 +11,4 @@ const SurveyField = ({ input, label, meta: { error, touched } }) => {
   );
 };
 
-export default SurveyField;
+export default RequestInputField;
