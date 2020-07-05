@@ -28,7 +28,15 @@ class NewRequest extends Component {
     return (
       <Layout>
         <h2>New Request</h2>
-        {this.renderContent()}
+        <div
+          style={{
+            minHeight: '64vh',
+            overflowY: 'scroll',
+            overflowX: 'hidden',
+          }}
+        >
+          {this.renderContent()}
+        </div>
       </Layout>
     );
   }

@@ -43,24 +43,32 @@ class RequestForm extends React.Component {
   // Function to render all the items in the Array Fields (item-list)
   renderItems = ({ fields, meta: { error, submitFailed } }) => {
     return (
-      <ul>
-        <li>
-          <button type='button' onClick={() => fields.push({})}>
-            Add Item
-          </button>
-          {submitFailed && error && <span>{error}</span>}
-        </li>
+      <ul className='field-array-parent'>
         {fields.map((item, index) => (
-          <li key={index}>
+          <li key={index} className='li-item-inputs-field-container'>
+            {this.renderItemFields(item)}
             <button
               type='button'
               title='Remove Item'
               onClick={() => fields.remove(index)}
-            />
-            <h4>Item #{index + 1}</h4>
-            {this.renderItemFields(item)}
+              className='delete-item-button'
+            >
+              <i className='fas fa-trash-alt'></i>
+            </button>
           </li>
         ))}
+        <li className='add-item-li'>
+          <button
+            className='add-item-button'
+            type='button'
+            onClick={() => fields.push({})}
+          >
+            Add Item
+          </button>
+          {submitFailed && error && (
+            <span className='add-item-error'>{error}</span>
+          )}
+        </li>
       </ul>
     );
   };
@@ -78,8 +86,14 @@ class RequestForm extends React.Component {
 
           <FieldArray name='items' component={this.renderItems} />
 
-          <Link to='/user'>Cancel</Link>
-          <button type='submit'>Confirm the Request</button>
+          <div className='form-handle-buttons'>
+            <Link to='/user' className='cancel-button'>
+              Cancel
+            </Link>
+            <button type='submit' className='confirm-button'>
+              Confirm the Request
+            </button>
+          </div>
         </form>
       </div>
     );

@@ -21,10 +21,18 @@ class Navbar extends React.Component {
       default:
         return (
           <React.Fragment>
-            <Link to='/profile/:id' className='navbar-right-navs'>
+            <Link
+              to='/profile/:id'
+              className='navbar-right-navs'
+              onClick={() => this.handleBurgerNavClick()}
+            >
               Profile
             </Link>
-            <a href='/api/logout' className='navbar-right-navs'>
+            <a
+              href='/api/logout'
+              className='navbar-right-navs'
+              onClick={() => this.handleBurgerNavClick()}
+            >
               Logout
             </a>
           </React.Fragment>
@@ -41,14 +49,20 @@ class Navbar extends React.Component {
           <Link
             to='#'
             className='navbar-left-navs'
-            onClick={() => this.setState({ show: true })}
+            onClick={() =>
+              this.setState({ show: true, burgerNav: !this.state.burgerNav })
+            }
           >
             Make a Request
           </Link>
         );
       default:
         return (
-          <Link to='/newRequest/:id' className='navbar-left-navs'>
+          <Link
+            to='/newRequest/:id'
+            className='navbar-left-navs'
+            onClick={() => this.handleBurgerNavClick()}
+          >
             Make a Request
           </Link>
         );
@@ -61,13 +75,17 @@ class Navbar extends React.Component {
         return;
       case false:
         return (
-          <Link to='/' className=''>
+          <Link to='/' className='' onClick={() => this.handleBurgerNavClick()}>
             Foodzy
           </Link>
         );
       default:
         return (
-          <Link to='/user' className=''>
+          <Link
+            to='/user'
+            className=''
+            onClick={() => this.handleBurgerNavClick()}
+          >
             Foodzy
           </Link>
         );
@@ -99,7 +117,11 @@ class Navbar extends React.Component {
               this.state.burgerNav ? 'burger-nav-active-left' : ''
             }`}
           >
-            <Link to='/viewRequests' className='navbar-left-navs'>
+            <Link
+              to='/viewRequests'
+              className='navbar-left-navs'
+              onClick={() => this.handleBurgerNavClick()}
+            >
               Accept a Request
             </Link>
 
