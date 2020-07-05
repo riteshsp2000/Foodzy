@@ -5,7 +5,7 @@ const SurveyField = ({ input, label, meta: { error, touched } }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...input} />
+      <input {...input} autoComplete='off' />
       {touched && error && <span>{error}</span>}
     </div>
   );

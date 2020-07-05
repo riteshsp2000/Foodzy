@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { formValues } from 'redux-form';
 
 const RequestReview = ({ onCancel, formValues }) => {
   // console.log(formValues);
@@ -13,7 +12,7 @@ const RequestReview = ({ onCancel, formValues }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { formValues: state.form.requestForm };
+  return { formValues: state.form.requestForm.values };
 };
 
 export default connect(mapStateToProps)(RequestReview);

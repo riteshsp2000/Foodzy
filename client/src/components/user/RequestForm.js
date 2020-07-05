@@ -4,7 +4,6 @@ import { reduxForm, Field, FieldArray } from 'redux-form';
 import _ from 'lodash';
 
 import SurveyField from './SurveyField';
-import RequestItemList from './RequestItemList';
 
 // ====================================================================================================
 const USER_FIELDS = [
@@ -119,10 +118,6 @@ class RequestForm extends React.Component {
           <Link to='/user'>Cancel</Link>
           <button type='submit'>Confirm the Request</button>
         </form>
-
-        <div className='item-list'>
-          <RequestItemList />
-        </div>
       </div>
     );
   }
