@@ -46,11 +46,6 @@ const RequestInputField = ({
             input: classes.input,
           },
         }}
-        InputLabelProps={{
-          classes: {
-            label: classes.label,
-          },
-        }}
       />
     </div>
   );
