@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import _ from 'lodash';
 
 import SurveyField from './SurveyField';
+import RequestItemList from './RequestItemList';
 
 const USER_FIELDS = [
   { label: 'Name', type: 'text', name: 'name', className: 'user-name' },
@@ -73,22 +74,34 @@ class RequestForm extends React.Component {
     });
   };
 
+  handleParentFormSubmit = () => {
+    this.props.onRequestSubmit();
+  };
+
   render() {
     return (
       <div>
         <form
-          onSubmit={this.props.handleSubmit(() => this.props.onRequestSubmit())}
+          onSubmit={this.props.handleSubmit(() => this.handleParentFormSubmit)}
           className='form-container'
         >
           <div className='user-input-container input-div'>
             {this.renderUserFields()}
           </div>
-          <div className='item-input-container input-div'>
-            {this.renderItemFields()}
-          </div>
           <Link to='/user'>Cancel</Link>
           <button type='submit'>Confirm the Request</button>
         </form>
+
+        <form className='item-input-container'>
+          <div className='item-input-container input-div'>
+            {this.renderItemFields()}
+          </div>
+          <i className='fas fa-plus-circle'></i>
+        </form>
+
+        <div className='item-list'>
+          <RequestItemList />
+        </div>
       </div>
     );
   }
