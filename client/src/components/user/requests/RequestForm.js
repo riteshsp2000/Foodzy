@@ -65,7 +65,9 @@ class RequestForm extends React.Component {
           >
             Add Item
           </button>
-          {submitFailed && error && <span>{error}</span>}
+          {submitFailed && error && (
+            <span className='add-item-error'>{error}</span>
+          )}
         </li>
       </ul>
     );

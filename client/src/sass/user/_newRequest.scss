@@ -74,6 +74,11 @@
       color: #fff;
     }
   }
+
+  & .add-item-error {
+    margin-left: 1em;
+    color: rgb(235, 63, 63);
+  }
 }
 
 .form-handle-buttons {
