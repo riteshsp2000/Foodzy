@@ -57,8 +57,12 @@ class RequestForm extends React.Component {
             </button>
           </li>
         ))}
-        <li className='add-item-button'>
-          <button type='button' onClick={() => fields.push({})}>
+        <li className='add-item-li'>
+          <button
+            className='add-item-button'
+            type='button'
+            onClick={() => fields.push({})}
+          >
             Add Item
           </button>
           {submitFailed && error && <span>{error}</span>}
@@ -80,8 +84,14 @@ class RequestForm extends React.Component {
 
           <FieldArray name='items' component={this.renderItems} />
 
-          <Link to='/user'>Cancel</Link>
-          <button type='submit'>Confirm the Request</button>
+          <div className='form-handle-buttons'>
+            <Link to='/user' className='cancel-button'>
+              Cancel
+            </Link>
+            <button type='submit' className='confirm-button'>
+              Confirm the Request
+            </button>
+          </div>
         </form>
       </div>
     );

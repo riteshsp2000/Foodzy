@@ -1,3 +1,5 @@
+@import '../variables';
+
 .user-input-container {
   margin-top: 1em;
   display: grid;
@@ -48,10 +50,68 @@
 
 .delete-item-button {
   grid-area: delete;
+  border-radius: 5px;
+  box-shadow: 0 0 0 0 rgba(112, 112, 117, 0.2);
+  border: 1px solid rgb(153, 153, 158);
+  background-color: #fff;
 }
 
-.add-item-button {
+.add-item-li {
   margin-top: 1em !important;
+  display: flex;
+  justify-content: flex-end;
+
+  & .add-item-button {
+    background-color: #fff;
+    color: $color-dark-blue;
+    box-shadow: 0 0 0 0 rgba(112, 112, 117, 0.2);
+    border: 1px solid $color-dark-blue;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover {
+      background-color: $color-dark-blue;
+      color: #fff;
+    }
+  }
+}
+
+.form-handle-buttons {
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  & .cancel-button,
+  & .confirm-button {
+    box-shadow: 0 0 0 0 rgba(112, 112, 117, 0.2);
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 5px;
+    width: auto;
+    background-color: #fff;
+  }
+
+  & .cancel-button {
+    color: rgb(235, 63, 63);
+    border: 1px solid rgb(235, 63, 63);
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgb(235, 63, 63);
+      color: #fff;
+    }
+  }
+
+  & .confirm-button {
+    color: rgb(31, 151, 31);
+    border: 1px solid rgb(31, 151, 31);
+
+    &:hover {
+      background-color: rgb(31, 151, 31);
+      color: #fff;
+    }
+  }
 }
 
 @media screen and (max-width: 480px) {
