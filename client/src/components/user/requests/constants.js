@@ -26,7 +26,7 @@ export const ITEM_FIELDS = [
   {
     label: 'Restaurant Name',
     type: 'text',
-    name: 'restaurant',
+    name: 'restaurantName',
     className: 'restaurant',
   },
   {
