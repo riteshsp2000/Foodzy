@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../sass/main.scss';
+
+import createBrowserHistory from '../history';
 
 import Footer from './marginals/Footer';
 import Navbar from './marginals/Navbar';
@@ -24,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <Router history={createBrowserHistory}>
           <Navbar />
           <Switch>
             <Route path='/' exact>
@@ -48,7 +50,7 @@ class App extends React.Component {
             <Redirect to='/' />
           </Switch>
           <Footer />
-        </BrowserRouter>
+        </Router>
       </div>
     );
   }

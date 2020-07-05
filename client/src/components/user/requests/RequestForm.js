@@ -43,24 +43,26 @@ class RequestForm extends React.Component {
   // Function to render all the items in the Array Fields (item-list)
   renderItems = ({ fields, meta: { error, submitFailed } }) => {
     return (
-      <ul>
-        <li>
+      <ul className='field-array-parent'>
+        {fields.map((item, index) => (
+          <li key={index} className='li-item-inputs-field-container'>
+            {this.renderItemFields(item)}
+            <button
+              type='button'
+              title='Remove Item'
+              onClick={() => fields.remove(index)}
+              className='delete-item-button'
+            >
+              <i className='fas fa-trash-alt'></i>
+            </button>
+          </li>
+        ))}
+        <li className='add-item-button'>
           <button type='button' onClick={() => fields.push({})}>
             Add Item
           </button>
           {submitFailed && error && <span>{error}</span>}
         </li>
-        {fields.map((item, index) => (
-          <li key={index}>
-            <button
-              type='button'
-              title='Remove Item'
-              onClick={() => fields.remove(index)}
-            />
-            <h4>Item #{index + 1}</h4>
-            {this.renderItemFields(item)}
-          </li>
-        ))}
       </ul>
     );
   };

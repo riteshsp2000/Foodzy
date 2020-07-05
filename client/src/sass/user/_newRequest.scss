@@ -1,0 +1,68 @@
+.user-input-container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1.5em;
+  grid-template-areas:
+    'userName userName userName userName'
+    'contactNumber contactNumber deliveryLocation deliveryLocation';
+}
+
+.user-name {
+  grid-area: userName;
+}
+
+.contact-number {
+  grid-area: contactNumber;
+}
+
+.delivery-location {
+  grid-area: deliveryLocation;
+}
+
+.field-array-parent {
+  margin-top: 3em !important;
+}
+
+.li-item-inputs-field-container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1.5em;
+  grid-template-areas: 'itemName itemName itemName itemName restaurant restaurant itemQuantity itemQuantity delete';
+}
+
+.item-name {
+  grid-area: itemName;
+}
+
+.item-quantity {
+  grid-area: itemQuantity;
+}
+
+.restaurant {
+  grid-area: restaurant;
+}
+
+.delete-item-button {
+  grid-area: delete;
+}
+
+.add-item-button {
+  margin-top: 1em !important;
+}
+
+@media screen and (max-width: 480px) {
+  .li-item-inputs-field-container {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1.5em;
+    grid-template-areas:
+      'itemName itemName itemName itemName itemName'
+      'restaurant restaurant itemQuantity itemQuantity delete';
+  }
+}

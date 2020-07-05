@@ -1,7 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import { USER_FIELDS, ITEM_FIELDS } from './constants';
 import { submitRequest } from '../../../actions/index';
