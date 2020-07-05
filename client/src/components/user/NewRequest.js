@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 
 import Layout from './Layout';
 import RequestForm from './RequestForm';
@@ -33,4 +34,6 @@ class NewRequest extends Component {
   }
 }
 
-export default NewRequest;
+export default reduxForm({
+  form: 'requestForm',
+})(NewRequest);

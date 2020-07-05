@@ -6,7 +6,7 @@ const SurveyField = ({ input, label, meta: { error, touched } }) => {
     <div>
       <label>{label}</label>
       <input {...input} />
-      {touched && error}
+      {touched && error && <span>{error}</span>}
     </div>
   );
 };

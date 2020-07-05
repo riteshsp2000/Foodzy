@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { formValues } from 'redux-form';
 
 const RequestReview = ({ onCancel, formValues }) => {
-  console.log(formValues);
+  // console.log(formValues);
   return (
     <div>
       <h4>Request Review</h4>
       <button onClick={() => onCancel()}>Back</button>
-      button
     </div>
   );
 };
