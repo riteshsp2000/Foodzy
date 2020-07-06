@@ -67,6 +67,21 @@
 }
 
 /* ================================================================ */
+.accepting-user-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  & div {
+    width: 100%;
+    margin: 0 0.3em;
+
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+}
 
 .request-view-container {
   min-height: 70vh;
