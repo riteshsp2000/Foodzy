@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: '20%',
+    maxWidth: '30%',
   },
   bullet: {
     display: 'inline-block',
@@ -25,20 +25,19 @@ const useStyles = makeStyles({
 
 export default function SimpleCard({ status, date, acceptedUser }) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant='outlined'>
       <CardContent>
         <Typography
           className={classes.title}
           color='textSecondary'
           gutterBottom
         >
-          {status}
+          Status
         </Typography>
-        <Typography variant='h5' component='h2'>
-          {state ? 'Accepted!' : 'Pending..'}
+        <Typography variant='h4' component='h2'>
+          {status ? 'Accepted!' : 'Pending..'}
         </Typography>
         <Typography className={classes.pos} color='textSecondary'>
           {date}
@@ -48,19 +47,26 @@ export default function SimpleCard({ status, date, acceptedUser }) {
           className={classes.title}
           color='textSecondary'
           gutterBottom
+          style={{ textAlign: 'right' }}
         >
           Accepted User details.
         </Typography>
-        <Typography variant='h5' component='h2'>
+        <Typography variant='h4' component='h2' style={{ textAlign: 'right' }}>
           {acceptedUser.name}
         </Typography>
-        <Typography className={classes.pos} color='textSecondary'>
+        <Typography
+          className={classes.pos}
+          color='textSecondary'
+          style={{ textAlign: 'right' }}
+        >
           {acceptedUser.contactNumber}
         </Typography>
       </CardContent>
 
       <CardActions>
-        <Button size='small'>Learn More</Button>
+        <Button size='large' variant='outlined'>
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );
