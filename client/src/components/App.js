@@ -47,6 +47,9 @@ class App extends React.Component {
             <Route path='/viewRequests' exact>
               <ViewRequests />
             </Route>
+            <Route path='/viewRequest/:id' exact>
+              <ViewRequests />
+            </Route>
             <Redirect to='/' />
           </Switch>
           <Footer />

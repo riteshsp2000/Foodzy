@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import createBrowserHistory from '../history';
-import { FETCH_USER } from './types';
+import { FETCH_USER, FETCH_REQUESTS } from './types';
 
 export const fetchUser = () => async (dispatch) => {
   const { data } = await axios.get('/api/current_user');
@@ -14,4 +14,10 @@ export const submitRequest = (values) => async (dispatch) => {
 
   dispatch({ type: FETCH_USER, payload: data });
   createBrowserHistory.push('/');
+};
+
+export const fetchRequests = (values) => async (dispatch) => {
+  const { data } = await axios.get('/api/viewRequests');
+
+  dispatch({ type: FETCH_REQUESTS, payload: data });
 };
