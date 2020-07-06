@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
 import Layout from './user/Layout';
 import createBrowserHistory from '../history';
@@ -28,7 +29,11 @@ const useStyles = makeStyles((theme) => ({
 const ViewRequest = ({
   details: { name, contactNumber, deliveryLocation, items, _id },
 }) => {
-  const handleAcceptRequest = () => {};
+  const [acceptedUser, setAcceptedUser] = useState({
+    name: '',
+    contactNumber: '',
+    _id,
+  });
 
   const renderItems = (items) => {
     if (!items) {
@@ -49,19 +54,39 @@ const ViewRequest = ({
     });
   };
 
+  const handleAcceptRequest = async (event) => {
+    event.preventDefault();
+
+    await axios.patch(`/api/acceptRequest`, acceptedUser);
+  };
+
+  const handleOnChangeName = (event) => {
+    setAcceptedUser({ ...acceptedUser, name: event.target.value });
+  };
+
+  const handleOnChangeContact = (event) => {
+    setAcceptedUser({
+      ...acceptedUser,
+      contact: parseInt(event.target.value, 10),
+    });
+  };
+
   const classes = useStyles();
 
   return (
     <Layout>
       <h2>Accept Request</h2>
-      <form noValidate autoComplete='off'>
+
+      <form autoComplete='off' onSubmit={(event) => handleAcceptRequest(event)}>
         <div className='accepting-user-div'>
           <div>
             <TextField
               id='outlined-basic'
+              required
               label='Name'
               variant='outlined'
               className={classes.root}
+              onChange={handleOnChangeName}
               InputProps={{
                 classes: {
                   input: classes.input,
@@ -69,12 +94,15 @@ const ViewRequest = ({
               }}
             />
           </div>
+
           <div>
             <TextField
               id='outlined-basic'
+              required
               label='Contact Number'
               variant='outlined'
               className={classes.root}
+              onChange={handleOnChangeContact}
               InputProps={{
                 classes: {
                   input: classes.input,
@@ -102,7 +130,7 @@ const ViewRequest = ({
             <button
               className='view-request-accept-request'
               type='submit'
-              onClick={() => handleAcceptRequest()}
+              value='Submit'
             >
               Accept Request
             </button>

@@ -17,13 +17,14 @@ module.exports = (app) => {
     res.send(requests.reverse());
   });
 
-  app.patch('/api/acceptRequest/:id', requireLogin, async (req, res) => {
-    const { name, contactNumber } = req.body;
-    const id = req.query.id;
+  app.patch('/api/acceptRequest', requireLogin, async (req, res) => {
+    const { name, contactNumber, _id } = req.body;
+
+    console.log(name);
 
     const request = await Request.findOneAndUpdate(
-      { _id: id },
-      { accepted: true, _acceptedUser: { name, contactNumber } }
+      { _id },
+      { $set: { accepted: true, _acceptedUser: { name, contactNumber } } }
     );
 
     try {
