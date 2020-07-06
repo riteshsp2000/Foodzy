@@ -1,0 +1,11 @@
+.profile-own-requests-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & .profile-card {
+    margin: 1em;
+    width: 30%;
+  }
+}
