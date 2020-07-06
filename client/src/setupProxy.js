@@ -8,6 +8,7 @@ module.exports = function (app) {
       '/api/logout',
       '/api/newRequest',
       '/api/viewRequests',
+      '/api/profile/viewRequests',
       '/api/**',
     ],
     createProxyMiddleware({

@@ -1,0 +1,70 @@
+.profile-parent-div {
+  display: flex;
+  flex-direction: row;
+
+  & .profile-own-requests-container {
+    width: 70%;
+  }
+
+  & .profile-info {
+    width: 30%;
+    height: 65vh;
+  }
+}
+
+.profile-own-requests-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  & .profile-card {
+    margin: 1em;
+    width: 43%;
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 480px) {
+  .profile-own-requests-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    & #profile-mobile-card {
+      width: 80% !important;
+    }
+  }
+
+  .profile-parent-div {
+    display: flex;
+    flex-direction: row;
+
+    & .profile-info {
+      width: 40%;
+      height: 65vh;
+    }
+
+    & .profile-own-requests-container {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-parent-div {
+    display: flex;
+    flex-direction: column;
+
+    & .profile-info {
+      width: 95%;
+      height: auto;
+    }
+
+    & .profile-own-requests-container {
+      width: 95%;
+
+      & .profile-card {
+        width: 100%;
+      }
+    }
+  }
+}
