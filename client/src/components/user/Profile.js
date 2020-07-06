@@ -9,7 +9,7 @@ import ProfileCard from './ProfileCard';
 const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
   useEffect(() => {
     fetchRequestsUser();
-  }, []);
+  }, [fetchRequestsUser]);
 
   const renderRequests = (requestsUser) => {
     switch (requestsUser) {
@@ -23,6 +23,7 @@ const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
         } else {
           return requestsUser.map(
             ({ accepted, dateAdded, _acceptedUser }, index) => {
+              const date = new Date(dateAdded);
               return (
                 <div
                   className='profile-card'
@@ -31,7 +32,7 @@ const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
                 >
                   <Card
                     status={accepted}
-                    date={dateAdded}
+                    date={date.toLocaleString()}
                     acceptedUser={
                       accepted
                         ? _acceptedUser

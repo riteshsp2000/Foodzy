@@ -16,6 +16,7 @@ import NewRequest from './user/NewRequest';
 import YourRequests from './user/YourRequests';
 import Profile from './user/Profile';
 import ViewRequests from './ViewRequests';
+import ViewRequest from './ViewRequest';
 import HomePage from './HomePage';
 
 class App extends React.Component {
@@ -47,8 +48,8 @@ class App extends React.Component {
             <Route path='/viewRequests' exact>
               <ViewRequests />
             </Route>
-            <Route path='/viewRequest/:id' exact>
-              <ViewRequests />
+            <Route path='/viewRequest' exact>
+              <ViewRequest />
             </Route>
             <Redirect to='/' />
           </Switch>
