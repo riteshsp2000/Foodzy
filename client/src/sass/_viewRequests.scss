@@ -1,0 +1,67 @@
+@import './variables';
+
+.requests-view-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+
+  & .view-request-card {
+    border: 1px solid $color-dark-blue;
+    border-radius: 5px;
+    width: 45%;
+    height: 12.5em;
+    margin: 1em;
+    padding: 1em;
+    color: $color-dark-blue;
+
+    & .card-item-container {
+      height: 9em;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      & .item-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        margin: 10px 0;
+        padding: 5px;
+
+        & .card-restaurant {
+          color: $color-light-blue;
+          margin-top: 5px;
+          margin-bottom: 0;
+          font-size: 1.25rem;
+        }
+
+        &:after {
+          content: '';
+          width: 90%;
+          height: 1px;
+          background: rgb(219, 219, 219);
+          position: absolute;
+          bottom: -1px;
+          margin: 0 5%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 700px) {
+  .requests-view-container {
+    & .view-request-card {
+      width: 42%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .requests-view-container {
+    & .view-request-card {
+      width: 95%;
+    }
+  }
+}

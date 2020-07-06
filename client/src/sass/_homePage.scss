@@ -96,6 +96,7 @@
     justify-content: center !important;
     align-items: center !important;
     margin-top: -15em !important;
+    height: auto;
   }
 
   .card-container .card {
@@ -113,10 +114,12 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: auto;
 
       &.card-container .card {
         margin: 1em;
         width: 120%;
+        height: 12em;
       }
     }
   }
