@@ -8,7 +8,7 @@ import ViewRequestCard from './ViewRequestCard';
 const ViewRequests = ({ requests, fetchRequests }) => {
   useEffect(() => {
     fetchRequests();
-  }, []);
+  }, [fetchRequests]);
 
   const renderRequestCards = (requests) => {
     switch (requests.length) {
@@ -16,7 +16,13 @@ const ViewRequests = ({ requests, fetchRequests }) => {
         return 'Loading...';
       default:
         return requests.map((request, index) => {
-          return <ViewRequestCard key={index} items={request.items} />;
+          return (
+            <ViewRequestCard
+              key={index}
+              items={request.items}
+              details={request}
+            />
+          );
         });
     }
   };

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const ViewRequestCard = ({ items }) => {
+import { setViewRequest } from '../actions/index';
+
+const ViewRequestCard = ({ items, setViewRequest, details }) => {
   return (
     <div className='view-request-card'>
       <div className='card-item-container'>
@@ -21,10 +24,12 @@ const ViewRequestCard = ({ items }) => {
         })}
       </div>
       <div className='view-request-buttons'>
-        <Link to='/viewRequest'>Accept Request</Link>
+        <Link to='/viewRequest' onClick={() => setViewRequest(details)}>
+          Accept Request
+        </Link>
       </div>
     </div>
   );
 };
 
-export default ViewRequestCard;
+export default connect(null, { setViewRequest })(ViewRequestCard);

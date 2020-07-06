@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Layout from './user/Layout';
 
-const ViewRequest = () => {
+const ViewRequest = ({ details }) => {
+  console.log(details);
   return (
     <Layout>
       <h2>View Requests</h2>
@@ -11,4 +13,8 @@ const ViewRequest = () => {
   );
 };
 
-export default ViewRequest;
+const mapStateToProps = ({ viewRequest }) => {
+  return { details: viewRequest };
+};
+
+export default connect(mapStateToProps)(ViewRequest);
