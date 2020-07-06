@@ -65,3 +65,131 @@
     }
   }
 }
+
+/* ================================================================ */
+
+.request-view-container {
+  min-height: 70vh;
+  width: 100%;
+  box-shadow: 0 0 1px 1px rgb(148, 147, 147);
+  border-radius: 5px;
+  border: 1px solid $color-dark-blue;
+  padding: 1em;
+  margin-top: 1em;
+  color: $color-light-blue;
+
+  & .view-request-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & .view-request-cancel {
+      color: rgb(235, 63, 63);
+      border: 1px solid rgb(235, 63, 63);
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 5px;
+
+      &:hover {
+        background-color: rgb(235, 63, 63);
+        color: #fff;
+      }
+    }
+
+    & .view-request-accept-request {
+      color: rgb(31, 151, 31);
+      border: 1px solid rgb(31, 151, 31);
+      border-radius: 5px;
+      padding: 5px;
+      background-color: #fff;
+
+      &:hover {
+        background-color: rgb(31, 151, 31);
+        color: #fff;
+      }
+    }
+  }
+
+  & .request-user-details {
+    border-radius: 5px;
+    border: 1px solid $color-dark-blue;
+
+    & .user-name {
+      padding: 5px;
+      margin: 1em;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    & .user-contact {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px;
+      margin: 0 1em;
+      margin-bottom: 1em;
+      font-size: 2rem;
+    }
+  }
+
+  & .items-list-view-request {
+    margin: 2em;
+
+    & .item-view-parent {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      & .item-view-name {
+        border-radius: 5px;
+        border: 1px solid $color-dark-blue;
+        padding: 10px;
+        width: 50%;
+        margin: 0 0.5em;
+      }
+
+      & .item-view-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+        margin: 0 0.5em;
+
+        & .item-view-quantity {
+          width: 33%;
+          border-radius: 5px;
+          border: 1px solid $color-dark-blue;
+          padding: 10px;
+        }
+
+        & .item-view-restaurant {
+          width: 63%;
+          border-radius: 5px;
+          border: 1px solid $color-dark-blue;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .request-view-container {
+    & .items-list-view-request {
+      & .item-view-parent {
+        display: flex;
+        flex-direction: column;
+
+        & .item-view-name {
+          width: 100%;
+          margin: 0.5em;
+        }
+
+        & .item-view-details {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

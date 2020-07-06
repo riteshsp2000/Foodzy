@@ -29,7 +29,7 @@ const ViewRequest = ({
 
   return (
     <Layout>
-      <h2>View Requests</h2>
+      <h2>Accept Request</h2>
 
       <div className='request-view-container'>
         <div className='request-user-details'>
