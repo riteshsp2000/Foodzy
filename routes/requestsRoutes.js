@@ -5,7 +5,13 @@ const requireLogin = require('../middlewares/requireLogin');
 const Request = mongoose.model('requests');
 
 module.exports = (app) => {
-  app.get('/api/viewRequests', requireLogin, async (req, res) => {
+  app.get('/api/viewRequests', async (req, res) => {
+    const requests = await Request.find({});
+
+    res.send(requests);
+  });
+
+  app.get('/api/profile/viewRequests', requireLogin, async (req, res) => {
     const requests = await Request.find({ _user: req.user.id });
 
     res.send(requests);
