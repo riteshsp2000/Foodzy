@@ -13,7 +13,7 @@ export const submitRequest = (values) => async (dispatch) => {
   const { data } = await axios.post('/api/newRequest', values);
 
   dispatch({ type: FETCH_USER, payload: data });
-  createBrowserHistory.push('/');
+  createBrowserHistory.push('/profile/:id');
 };
 
 export const fetchRequestsUser = (values) => async (dispatch) => {

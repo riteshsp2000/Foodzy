@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchRequestsUser } from '../../actions/index';
 import Layout from './Layout';
-import Card from '../Card';
+import Card from './Card';
 
 const Profile = ({ fetchRequestsUser, requestsUser }) => {
   useEffect(() => {
@@ -17,19 +17,25 @@ const Profile = ({ fetchRequestsUser, requestsUser }) => {
       case undefined:
         return 'Loading...';
       default:
-        return requestsUser.map(({ accepted, dateAdded, _acceptedUser }) => {
-          return (
-            <div className='profile-card'>
-              <Card
-                status={accepted}
-                date={dateAdded}
-                acceptedUser={
-                  accepted ? _acceptedUser : { name: 'NA', contactNumber: 'NA' }
-                }
-              />
-            </div>
-          );
-        });
+        if (requestsUser.length === 0) {
+          return 'No Orders Yet...';
+        } else {
+          return requestsUser.map(({ accepted, dateAdded, _acceptedUser }) => {
+            return (
+              <div className='profile-card'>
+                <Card
+                  status={accepted}
+                  date={dateAdded}
+                  acceptedUser={
+                    accepted
+                      ? _acceptedUser
+                      : { name: 'NA', contactNumber: 'NA' }
+                  }
+                />
+              </div>
+            );
+          });
+        }
     }
   };
 
@@ -37,8 +43,11 @@ const Profile = ({ fetchRequestsUser, requestsUser }) => {
   return (
     <Layout>
       <h2>Profile</h2>
-      <div className='profile-own-requests-container'>
-        {renderRequests(requestsUser)}
+      <div className='profile-parent-div'>
+        <div className='profile-own-requests-container'>
+          {renderRequests(requestsUser)}
+        </div>
+        <div className='profile-info'></div>
       </div>
     </Layout>
   );
