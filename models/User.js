@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema } = require('mongoose');
+const { Schema } = mongoose;
 
 // Creating the user Schema defining the different property
 // to be stored for each individual user.
