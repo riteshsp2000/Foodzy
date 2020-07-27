@@ -8,6 +8,7 @@ const requestSchema = new Schema({
   deliveryLocation: String,
   items: [Object],
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
+  _accepted_user: { type: Schema.Types.ObjectId, ref: 'User', default: null },
   dateAdded: Date,
   accepted: { type: Boolean, default: false },
   _acceptedUser: Object,

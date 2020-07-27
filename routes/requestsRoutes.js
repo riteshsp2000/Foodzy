@@ -17,6 +17,12 @@ module.exports = (app) => {
     res.send(requests.reverse());
   });
 
+  app.get('/api/profile/acceptedRequests', requireLogin, async (req, res) => {
+    const requests = await Request.find({ _accepted_user: req.user.id });
+
+    res.send(requests.reverse());
+  });
+
   app.patch('/api/acceptRequest', requireLogin, async (req, res) => {
     const { name, contactNumber, _id } = req.body;
 
@@ -24,7 +30,13 @@ module.exports = (app) => {
 
     const request = await Request.findOneAndUpdate(
       { _id },
-      { $set: { accepted: true, _acceptedUser: { name, contactNumber } } }
+      {
+        $set: {
+          accepted: true,
+          _acceptedUser: { name, contactNumber },
+          _accepted_user: req.user.id,
+        },
+      }
     );
 
     try {
