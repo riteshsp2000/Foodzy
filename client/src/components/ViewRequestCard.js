@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import VerticallyCenteredModal from './VerticallyCenteredModal';
 
 import { setViewRequest } from '../actions/index';
 
-const ViewRequestCard = ({ items, setViewRequest, details }) => {
+const ViewRequestCard = ({ items, setViewRequest, details, auth }) => {
+  const [show, setShow] = useState(false);
+
+  const renderAcceptRequest = (user) => {
+    switch (user) {
+      case null:
+        return;
+      case false:
+        return (
+          <Link to='#' onClick={() => setShow(true)}>
+            Accept Request
+          </Link>
+        );
+      default:
+        return (
+          <Link to='/viewRequest' onClick={() => setViewRequest(details)}>
+            Accept Request
+          </Link>
+        );
+    }
+  };
+
   return (
     <div className='view-request-card'>
       <div className='card-item-container'>
@@ -24,12 +46,18 @@ const ViewRequestCard = ({ items, setViewRequest, details }) => {
         })}
       </div>
       <div className='view-request-buttons'>
-        <Link to='/viewRequest' onClick={() => setViewRequest(details)}>
-          Accept Request
-        </Link>
+        {renderAcceptRequest(auth)}
+        <VerticallyCenteredModal
+          show={show}
+          onHide={() => this.setState({ show: false })}
+        />
       </div>
     </div>
   );
 };
 
-export default connect(null, { setViewRequest })(ViewRequestCard);
+const mapStateToProps = (state) => {
+  return { auth: state.auth };
+};
+
+export default connect(mapStateToProps, { setViewRequest })(ViewRequestCard);
