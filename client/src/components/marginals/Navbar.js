@@ -75,17 +75,13 @@ class Navbar extends React.Component {
         return;
       case false:
         return (
-          <Link to='/' className='' onClick={() => this.handleBurgerNavClick()}>
+          <Link to='/' className=''>
             Foodzy
           </Link>
         );
       default:
         return (
-          <Link
-            to='/user'
-            className=''
-            onClick={() => this.handleBurgerNavClick()}
-          >
+          <Link to='/user' className=''>
             Foodzy
           </Link>
         );

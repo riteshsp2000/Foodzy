@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRequestsUser } from '../../actions/index';
+import {
+  fetchRequestsUser,
+  fetchAcceptedRequestsUser,
+} from '../../actions/index';
 import Layout from './Layout';
 import Card from './Card';
 import Card2 from './Card2';
@@ -10,13 +13,16 @@ import { Divider } from '@material-ui/core';
 
 const Profile = ({
   fetchRequestsUser,
+  fetchAcceptedRequestsUser,
   requestsUser,
   auth,
   acceptedRequestsUser,
 }) => {
+  // =============
   useEffect(() => {
     fetchRequestsUser();
-  }, [fetchRequestsUser]);
+    fetchAcceptedRequestsUser();
+  }, [fetchRequestsUser, fetchAcceptedRequestsUser]);
 
   const renderRequests = (requestsUser) => {
     switch (requestsUser) {
@@ -26,7 +32,11 @@ const Profile = ({
         return 'Loading...';
       default:
         if (requestsUser.length === 0) {
-          return 'No Orders Yet...';
+          return (
+            <h4 style={{ textAlign: 'center', width: '100%' }}>
+              No Orders Yet...
+            </h4>
+          );
         } else {
           return requestsUser.map(
             ({ accepted, dateAdded, _acceptedUser }, index) => {
@@ -54,15 +64,19 @@ const Profile = ({
     }
   };
 
-  const renderAcceptedRequest = (acceptedRequestsUser) => {
+  const renderAcceptedRequests = (acceptedRequestsUser) => {
     switch (acceptedRequestsUser) {
       case null:
         return 'Loading...';
       case undefined:
         return 'Loading...';
       default:
-        if (requestsUser.length === 0) {
-          return 'No Accepted Orders Yet...';
+        if (acceptedRequestsUser.length === 0) {
+          return (
+            <h4 style={{ textAlign: 'center', width: '100%' }}>
+              No Accepted Orders Yet...
+            </h4>
+          );
         } else {
           return acceptedRequestsUser.map(
             ({ contactNumber, dateAdded, name, deliveryLocation }, index) => {
@@ -132,7 +146,7 @@ const Profile = ({
               Accepted Requests
             </h3>
             <div className='profile-accepted-requests-container'>
-              {renderAcceptedRequest(acceptedRequestsUser)}
+              {renderAcceptedRequests(acceptedRequestsUser)}
             </div>
           </div>
         </div>
@@ -145,4 +159,7 @@ const mapStateToProps = ({ requestsUser, auth, acceptedRequestsUser }) => {
   return { requestsUser, auth, acceptedRequestsUser };
 };
 
-export default connect(mapStateToProps, { fetchRequestsUser })(Profile);
+export default connect(mapStateToProps, {
+  fetchRequestsUser,
+  fetchAcceptedRequestsUser,
+})(Profile);
