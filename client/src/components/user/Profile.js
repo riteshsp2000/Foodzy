@@ -4,9 +4,16 @@ import { connect } from 'react-redux';
 import { fetchRequestsUser } from '../../actions/index';
 import Layout from './Layout';
 import Card from './Card';
+import Card2 from './Card2';
 import ProfileCard from './ProfileCard';
+import { Divider } from '@material-ui/core';
 
-const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
+const Profile = ({
+  fetchRequestsUser,
+  requestsUser,
+  auth,
+  acceptedRequestsUser,
+}) => {
   useEffect(() => {
     fetchRequestsUser();
   }, [fetchRequestsUser]);
@@ -47,6 +54,39 @@ const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
     }
   };
 
+  const renderAcceptedRequest = (acceptedRequestsUser) => {
+    switch (acceptedRequestsUser) {
+      case null:
+        return 'Loading...';
+      case undefined:
+        return 'Loading...';
+      default:
+        if (requestsUser.length === 0) {
+          return 'No Accepted Orders Yet...';
+        } else {
+          return acceptedRequestsUser.map(
+            ({ contactNumber, dateAdded, name, deliveryLocation }, index) => {
+              const date = new Date(dateAdded);
+              return (
+                <div
+                  className='profile-card'
+                  id='profile-mobile-card'
+                  key={index}
+                >
+                  <Card2
+                    date={date.toLocaleString()}
+                    contactNumber={contactNumber}
+                    name={name}
+                    deliveryLocation={deliveryLocation}
+                  />
+                </div>
+              );
+            }
+          );
+        }
+    }
+  };
+
   const renderProfile = (auth) => {
     switch (auth) {
       case null:
@@ -69,16 +109,40 @@ const Profile = ({ fetchRequestsUser, requestsUser, auth }) => {
       <h2>Profile</h2>
       <div className='profile-parent-div'>
         <div className='profile-info'>{renderProfile(auth)}</div>
-        <div className='profile-own-requests-container'>
-          {renderRequests(requestsUser)}
+        <div className='profile-requests'>
+          <div>
+            <h3
+              style={{
+                marginLeft: '1em',
+                marginTop: '1em',
+                marginBottom: '0.5em',
+              }}
+            >
+              Own Requests
+            </h3>
+            <div className='profile-own-requests-container'>
+              {renderRequests(requestsUser)}
+            </div>
+            <Divider />
+          </div>
+          <div>
+            <h3
+              style={{ marginLeft: '1em', marginTop: '1em', marginBottom: '0' }}
+            >
+              Accepted Requests
+            </h3>
+            <div className='profile-accepted-requests-container'>
+              {renderAcceptedRequest(acceptedRequestsUser)}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
   );
 };
 
-const mapStateToProps = ({ requestsUser, auth }) => {
-  return { requestsUser, auth };
+const mapStateToProps = ({ requestsUser, auth, acceptedRequestsUser }) => {
+  return { requestsUser, auth, acceptedRequestsUser };
 };
 
 export default connect(mapStateToProps, { fetchRequestsUser })(Profile);

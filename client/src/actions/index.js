@@ -4,6 +4,7 @@ import createBrowserHistory from '../history';
 import {
   FETCH_USER,
   FETCH_REQUESTS_USER,
+  FETCH_ACCEPTED_REQUESTS_USER,
   FETCH_REQUESTS,
   SET_VIEW_REQUEST,
 } from './types';
@@ -31,6 +32,14 @@ export const fetchRequestsUser = (values) => async (dispatch) => {
   const { data } = await axios.get('/api/profile/viewRequests');
 
   dispatch({ type: FETCH_REQUESTS_USER, payload: data });
+};
+
+// =====================================================================================
+
+export const fetchAcceptedRequestsUser = (values) => async (dispatch) => {
+  const { data } = await axios.get('/api/profile/acceptedRequests');
+
+  dispatch({ type: FETCH_ACCEPTED_REQUESTS_USER, payload: data });
 };
 
 // =====================================================================================

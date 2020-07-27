@@ -5,6 +5,7 @@ import authReducer from './authReducer';
 import requestsReducers from './requestsReducer';
 import requestsUserReducers from './requestsUserReducer';
 import viewRequestReducer from './viewRequestReducer';
+import acceptedRequestsUserReducer from './acceptedRequestsUserReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   requests: requestsReducers,
   requestsUser: requestsUserReducers,
   viewRequest: viewRequestReducer,
+  acceptedRequestsUser: acceptedRequestsUserReducer,
 });
