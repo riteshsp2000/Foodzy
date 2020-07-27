@@ -5,7 +5,7 @@ import Layout from './Layout';
 const UserHomePage = () => {
   return (
     <Layout>
-      <h2>User Home Page</h2>
+      <header className='user-home-page'></header>
     </Layout>
   );
 };

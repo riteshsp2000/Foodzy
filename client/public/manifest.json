@@ -1,0 +1,19 @@
+{
+  "short_name": "Foodzy",
+  "name": "Foodzy - Food Delivers",
+  "scope": ".",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "Feeling lazy and hungry? Order now and get delivered!",
+  "lang": "en-US",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

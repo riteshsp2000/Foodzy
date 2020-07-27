@@ -27,11 +27,23 @@ const ViewRequests = ({ requests, fetchRequests }) => {
     }
   };
 
+  const checkAvailableRequests = (requests) => {
+    if (requests.length === 0) {
+      return (
+        <h4 style={{ textAlign: 'center', width: '100%' }}>
+          No requests made yet...
+        </h4>
+      );
+    }
+
+    renderRequestCards(requests);
+  };
+
   return (
     <Layout>
       <h2>View Requests</h2>
       <div className='requests-view-container'>
-        {renderRequestCards(requests)}
+        {checkAvailableRequests(requests)}
       </div>
     </Layout>
   );

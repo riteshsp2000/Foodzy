@@ -9,6 +9,7 @@ module.exports = function (app) {
       '/api/newRequest',
       '/api/viewRequests',
       '/api/profile/viewRequests',
+      '/api/profile/acceptedRequests',
       '/api/**',
     ],
     createProxyMiddleware({

@@ -31,7 +31,7 @@ const ViewRequest = ({
 }) => {
   const [acceptedUser, setAcceptedUser] = useState({
     name: '',
-    contactNumber: '',
+    contactNumber: 0,
     _id,
   });
 
@@ -56,8 +56,9 @@ const ViewRequest = ({
 
   const handleAcceptRequest = async (event) => {
     event.preventDefault();
-
+    console.log(acceptedUser);
     await axios.patch(`/api/acceptRequest`, acceptedUser);
+    createBrowserHistory.push('/profile/:id');
   };
 
   const handleOnChangeName = (event) => {
@@ -67,7 +68,7 @@ const ViewRequest = ({
   const handleOnChangeContact = (event) => {
     setAcceptedUser({
       ...acceptedUser,
-      contact: parseInt(event.target.value, 10),
+      contactNumber: event.target.value,
     });
   };
 
